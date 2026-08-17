@@ -1,4 +1,22 @@
-<section>
-  <h1>Descompila</h1>
-  <p>Educação de forma simplificada para todos. Conteúdo da Home entra na Fase 2.</p>
+<section class="hero container">
+  <span class="eyebrow">Podcast · Educação tech</span>
+  <h1>Educação de tecnologia, simplificada para todos.</h1>
+  <p class="lede">
+    O Descompila volta em formato de podcast: conversas diretas sobre tecnologia, carreira e o
+    impacto da IA no dia a dia — sem jargão desnecessário.
+  </p>
+  <div class="actions">
+    <app-button variant="primary" [routerLink]="'/episodios'">Ver episódios</app-button>
+    <app-button variant="secondary" [href]="canalUrl">Canal no YouTube</app-button>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Episódio mais recente</h2>
+  <app-card class="episode">
+    <span class="eyebrow">Episódio 01</span>
+    <h3>O Desafio dos Professores na Era da Inteligência Artificial</h3>
+    <p>Com Jean Lobo.</p>
+    <app-button variant="ghost" [href]="episodio1Url">Assistir no YouTube →</app-button>
+  </app-card>
 </section>

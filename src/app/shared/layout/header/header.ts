@@ -9,10 +9,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Header {
   protected readonly links = [
-    { path: '/', label: 'Home' },
-    { path: '/episodios', label: 'Episódios' },
-    { path: '/sobre', label: 'Sobre' },
-    { path: '/patrocinadores', label: 'Seja Patrocinador' },
-    { path: '/cursos', label: 'Cursos' },
+    { path: '/', label: 'Home', highlight: false },
+    { path: '/episodios', label: 'Episódios', highlight: false },
+    { path: '/sobre', label: 'Sobre', highlight: false },
+    { path: '/cursos', label: 'Cursos', highlight: false },
+    { path: '/patrocinadores', label: 'Seja Patrocinador', highlight: true },
   ];
 }

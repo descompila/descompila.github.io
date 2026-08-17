@@ -1,1 +1,154 @@
-/* You can add global styles to this file, and also import other style files */
+// IBM Plex Sans — títulos e corpo de texto.
+@use '@fontsource/ibm-plex-sans/latin-400.css' as *;
+@use '@fontsource/ibm-plex-sans/latin-500.css' as *;
+@use '@fontsource/ibm-plex-sans/latin-600.css' as *;
+@use '@fontsource/ibm-plex-sans/latin-700.css' as *;
+
+// IBM Plex Mono — rótulos, datas, badges técnicos. Ecoa o `</>` da logo.
+@use '@fontsource/ibm-plex-mono/latin-400.css' as *;
+@use '@fontsource/ibm-plex-mono/latin-500.css' as *;
+
+:root {
+  // Cor — paleta extraída das logos (.claude/docs/identidade-visual.md).
+  --color-bg: #f5f9fb;
+  --color-surface: #ffffff;
+  --color-surface-soft: #edf4f7;
+  --color-ink: #0f2e3d;
+  --color-ink-soft: #4a6b7a;
+  --color-ink-faint: #7c97a3;
+  --color-accent-deep: #154c63;
+  --color-accent: #2c86a8;
+  --color-accent-bright: #2fafdd;
+  --color-border: #dce8ed;
+  --color-on-accent-deep: #f5f9fb;
+
+  // Faixa de marca (rodapé, selo) — fixa em azul-marinho nos dois temas,
+  // deliberadamente independente do --color-accent-* (que adapta ao tema).
+  --brand-band-bg: #154c63;
+  --brand-band-ink: #f5f9fb;
+
+  // Tipografia
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+  // Espaçamento (escala 4px)
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  // Forma
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 2px rgba(15, 46, 61, 0.06), 0 6px 20px rgba(15, 46, 61, 0.06);
+
+  // Largura de leitura
+  --measure: 62ch;
+  --content-width: 72rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1e28;
+    --color-surface: #112c39;
+    --color-surface-soft: #14313f;
+    --color-ink: #e9f4f9;
+    --color-ink-soft: #a9c6d2;
+    --color-ink-faint: #6f8d99;
+    --color-accent-deep: #6fd3f2;
+    --color-accent: #4fc1e8;
+    --color-accent-bright: #4fc1e8;
+    --color-border: #1e4351;
+    --color-on-accent-deep: #0b1e28;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-4);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 var(--space-4);
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--color-accent-deep);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

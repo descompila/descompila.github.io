@@ -1,0 +1,15 @@
+<ng-template #label><ng-content /></ng-template>
+
+@if (routerLink(); as link) {
+  <a class="btn" [class]="variant()" [routerLink]="link">
+    <ng-container [ngTemplateOutlet]="label" />
+  </a>
+} @else if (href(); as url) {
+  <a class="btn" [class]="variant()" [href]="url" target="_blank" rel="noopener">
+    <ng-container [ngTemplateOutlet]="label" />
+  </a>
+} @else {
+  <button class="btn" [class]="variant()" [type]="type()">
+    <ng-container [ngTemplateOutlet]="label" />
+  </button>
+}

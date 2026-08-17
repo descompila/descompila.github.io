@@ -1,0 +1,29 @@
+.hero {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-8);
+  max-width: 46rem;
+}
+
+.lede {
+  font-size: 1.1rem;
+  color: var(--color-ink-soft);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+}
+
+.episode {
+  max-width: 36rem;
+
+  h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  p {
+    color: var(--color-ink-soft);
+  }
+}

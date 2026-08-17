@@ -1,13 +1,18 @@
 <header>
-  <a class="brand" routerLink="/">Descompila</a>
-  <nav>
-    @for (link of links; track link.path) {
-      <a
-        [routerLink]="link.path"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-        >{{ link.label }}</a
-      >
-    }
-  </nav>
+  <div class="bar">
+    <a class="brand" routerLink="/">
+      <img src="brand/logo-horizontal-azul.png" alt="Descompila" height="32" />
+    </a>
+    <nav>
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          [class.highlight]="link.highlight"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+  </div>
 </header>
