@@ -23,11 +23,10 @@ Poucas páginas, cada uma com um trabalho claro. "Cursos" e "Patrocinadores" ent
 
 Angular direto no GitHub Pages, sem backend — todo o conteúdo é estático ou vem do próprio YouTube.
 
-- **Angular (standalone components)**, última versão estável, com *prerendering/SSG* nativo (`ng build` com rotas prerenderizadas) — essencial porque GitHub Pages não roda Angular Universal com servidor; cada rota precisa nascer como HTML pronto para o SEO funcionar.
-- **Roteamento em site estático**: GitHub Pages não reescreve URLs para o Angular Router, então é preciso o truque do `404.html` (cópia do `index.html` que redireciona de volta para a rota certa).
+- **Angular 22 (standalone, zoneless)**, com `outputMode: "static"` — cada rota é prerenderizada em build time para um `index.html` próprio (sem servidor Node em produção, sem Express). Isso também elimina a necessidade do truque clássico do `404.html`: como cada rota já existe como arquivo estático real, o GitHub Pages serve `/episodios/`, `/sobre/` etc. diretamente, sem redirecionamento client-side.
 - **Hospedagem**: página de organização do GitHub Pages, repositório `descompila.github.io` → servido na raiz (`https://descompila.github.io/`), `base-href` do Angular configurado como `/`. Dá pra apontar domínio próprio depois sem mudar a estrutura.
 - **Conteúdo dos episódios**: lista mantida manualmente como array JSON/TS no repositório (id do vídeo, título, data, convidado, patrocinadores do episódio). Simples de editar a cada episódio novo, sem chave de API exposta no cliente — reavaliar integração com a YouTube Data API quando houver mais episódios.
-- **GitHub Actions** para build e deploy automático a cada push na branch principal.
+- **GitHub Actions** (`.github/workflows/deploy.yml`) builda e publica `dist/descompila/browser` no GitHub Pages a cada push na `main`, via `actions/upload-pages-artifact` + `actions/deploy-pages`.
 
 ## SEO moderno
 
@@ -49,19 +48,21 @@ Estratégia completa de captação, ferramenta escolhida e estrutura da página 
 
 Fases pequenas e sequenciais — cada uma entrega algo que já poderia ir ao ar sozinho.
 
-1. **Fase 0 — Fundação** (~1 semana): repositório no GitHub, projeto Angular novo, ESLint/Prettier, estrutura de pastas, favicon a partir do símbolo da logo, `base-href` como `/`.
-2. **Fase 1 — Design system** (~1 semana): tokens de cor e tipografia, componentes base (header, footer, card de episódio, botão), integração das variações de logo.
+1. **Fase 0 — Fundação** ✅ concluída: repositório `descompila/descompila.github.io` criado, projeto Angular 22 (standalone, zoneless, `outputMode: static`) com ESLint + Prettier, estrutura de pastas (`pages/`, `shared/layout/`), rotas lazy para as 5 páginas com header/footer navegáveis, favicon/ícones gerados a partir do símbolo da logo, `base-href` `/`.
+2. **Fase 1 — Design system**: tokens de cor e tipografia, componentes base (header, footer, card de episódio, botão), integração das variações de logo. *(próxima)*
 3. **Fase 2 — Páginas principais** (~1–2 semanas): Home, Episódios (com o episódio 1 já publicado), Sobre e Patrocinadores (com formulário de captação já funcional — ver [`patrocinadores.md`](patrocinadores.md)), com conteúdo real desde o início.
-4. **Fase 3 — SEO e performance** (~3–5 dias): prerender por rota, meta tags, JSON-LD, sitemap, checagem de Core Web Vitals.
-5. **Fase 4 — CI/CD e lançamento** (~2–3 dias): GitHub Actions para deploy automático, teste em produção, divulgação no canal.
+4. **Fase 3 — SEO e performance** (~3–5 dias): meta tags por rota, JSON-LD, sitemap, checagem de Core Web Vitals.
+5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); falta apenas testar em produção com conteúdo real (Fase 2) e divulgar no canal.
 6. **Fase 5 — Patrocinadores e cursos** (contínuo): páginas "em breve" evoluem para reais assim que houver patrocinador ou curso confirmado.
+
+**Status atual**: site no ar em placeholder, sem estilo, em <https://descompila.github.io/> — confirma que a fundação técnica (build, roteamento, deploy) funciona de ponta a ponta. Próximo passo é a Fase 1 (design system).
 
 ## Decisões já confirmadas
 
 - **Hospedagem**: página de organização do GitHub Pages, repositório `Descompila/descompila.github.io`, servida em `https://descompila.github.io/`, não domínio próprio por enquanto.
 - **Episódios**: lista mantida manualmente no código, sem integração com a API do YouTube por ora.
 - **Captação de patrocinadores**: formulário via Formspree/Web3Forms (sem backend), leads controlados numa planilha simples — ver [`patrocinadores.md`](patrocinadores.md).
-- **Nome do repositório**: `descompila.github.io`, na organização/usuário `Descompila` — usado no `base-href` (`/`) e nas URLs.
+- **Nome do repositório**: `descompila.github.io`, na organização `descompila` (github.com/descompila) — usado no `base-href` (`/`) e nas URLs. Site publicado em <https://descompila.github.io/>.
 
 ## Referência
 
