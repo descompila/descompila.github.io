@@ -2,8 +2,7 @@ import { Component, signal } from '@angular/core';
 import { Button } from '../../shared/ui/button/button';
 import { Card } from '../../shared/ui/card/card';
 
-// TODO: substituir pela access key gerada em https://web3forms.com (ver .claude/docs/patrocinadores.md)
-const WEB3FORMS_ACCESS_KEY = '';
+const WEB3FORMS_ACCESS_KEY = '26565cff-e293-40b4-8dd4-300180fca945';
 
 @Component({
   selector: 'app-patrocinadores',

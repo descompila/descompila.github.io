@@ -1,14 +1,22 @@
 <app-card class="episode-card">
-  <span class="eyebrow">Episódio {{ episodio().numero.toString().padStart(2, '0') }}</span>
+  <span class="eyebrow">
+    @if (episodio().publicado) {
+      Episódio {{ episodio().numero.toString().padStart(2, '0') }}
+    } @else {
+      Episódio {{ episodio().numero.toString().padStart(2, '0') }} · Estreia em breve
+    }
+  </span>
   <h3>{{ episodio().titulo }}</h3>
   <p class="meta">
-    Com {{ episodio().convidado }}
-    @if (episodio().data) {
-      · {{ episodio().data | date: "d 'de' MMMM 'de' y" : undefined : 'pt-BR' }}
+    Com {{ episodio().convidado }} ·
+    @if (episodio().publicado) {
+      {{ episodio().data | date: "d 'de' MMMM 'de' y" : 'UTC' }}
+    } @else {
+      estreia {{ episodio().data | date: "d 'de' MMMM" : 'UTC' }}
     }
   </p>
 
-  @if (showPlayer()) {
+  @if (episodio().publicado && showPlayer()) {
     <div class="player">
       <iframe
         [src]="embedUrl()"
@@ -27,8 +35,10 @@
     </div>
   } @else {
     <p class="descricao">{{ episodio().descricao }}</p>
-    <app-button variant="ghost" [href]="'https://www.youtube.com/watch?v=' + episodio().youtubeId">
-      Assistir no YouTube →
-    </app-button>
+    @if (episodio().publicado && episodio().youtubeId; as videoId) {
+      <app-button variant="ghost" [href]="'https://www.youtube.com/watch?v=' + videoId">
+        Assistir no YouTube →
+      </app-button>
+    }
   }
 </app-card>

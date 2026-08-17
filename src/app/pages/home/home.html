@@ -12,6 +12,6 @@
 </section>
 
 <section class="container">
-  <h2>Episódio mais recente</h2>
+  <h2>{{ ultimoEpisodio.publicado ? 'Episódio mais recente' : 'Próximo episódio' }}</h2>
   <app-episode-card class="episode" [episodio]="ultimoEpisodio" />
 </section>
