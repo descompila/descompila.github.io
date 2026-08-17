@@ -49,13 +49,13 @@ Estratégia completa de captação, ferramenta escolhida e estrutura da página 
 Fases pequenas e sequenciais — cada uma entrega algo que já poderia ir ao ar sozinho.
 
 1. **Fase 0 — Fundação** ✅ concluída: repositório `descompila/descompila.github.io` criado, projeto Angular 22 (standalone, zoneless, `outputMode: static`) com ESLint + Prettier, estrutura de pastas (`pages/`, `shared/layout/`), rotas lazy para as 5 páginas com header/footer navegáveis, favicon/ícones gerados a partir do símbolo da logo, `base-href` `/`.
-2. **Fase 1 — Design system**: tokens de cor e tipografia, componentes base (header, footer, card de episódio, botão), integração das variações de logo. *(próxima)*
+2. **Fase 1 — Design system** ✅ concluída: tokens de cor/tipografia (CSS custom properties, com suporte a tema claro/escuro via `prefers-color-scheme`), IBM Plex Sans/Mono self-hosted via `@fontsource`, componentes `Button` e `Card` reutilizáveis, Header/Footer com as logos reais.
 3. **Fase 2 — Páginas principais** (~1–2 semanas): Home, Episódios (com o episódio 1 já publicado), Sobre e Patrocinadores (com formulário de captação já funcional — ver [`patrocinadores.md`](patrocinadores.md)), com conteúdo real desde o início.
 4. **Fase 3 — SEO e performance** (~3–5 dias): meta tags por rota, JSON-LD, sitemap, checagem de Core Web Vitals.
 5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); falta apenas testar em produção com conteúdo real (Fase 2) e divulgar no canal.
 6. **Fase 5 — Patrocinadores e cursos** (contínuo): páginas "em breve" evoluem para reais assim que houver patrocinador ou curso confirmado.
 
-**Status atual**: site no ar em placeholder, sem estilo, em <https://descompila.github.io/> — confirma que a fundação técnica (build, roteamento, deploy) funciona de ponta a ponta. Próximo passo é a Fase 1 (design system).
+**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual aplicada (cores, tipografia, logos, header/footer, botões e cards). Conteúdo das páginas ainda é placeholder — próximo passo é a Fase 2 (páginas principais com conteúdo real).
 
 ## Decisões já confirmadas
 
