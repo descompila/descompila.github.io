@@ -1,8 +1,59 @@
 <section class="container">
   <span class="eyebrow">Patrocínio</span>
   <h1>Seja Patrocinador</h1>
-  <p>
-    Vitrine de patrocinadores e formulário de captação (ver .claude/docs/patrocinadores.md) entram
-    na Fase 2.
+  <p class="lede">
+    O Descompila está voltando com força total no formato podcast, com conversas sobre tecnologia,
+    carreira e educação para um público que quer aprender de verdade — sem enrolação. Ainda não
+    temos patrocinadores, e o primeiro episódio já está no ar como prova do formato.
   </p>
+
+  <div class="layout">
+    <div class="pitch">
+      <h2>Formatos possíveis</h2>
+      <ul>
+        <li>Menção de abertura ou encerramento no episódio</li>
+        <li>Bloco dedicado durante a conversa</li>
+        <li>Presença na descrição e nas redes do episódio</li>
+      </ul>
+      <p class="note">
+        Os formatos e valores são definidos junto com cada patrocinador, conforme o tamanho da
+        audiência em cada fase do podcast.
+      </p>
+    </div>
+
+    <app-card class="form-card">
+      @if (submitted()) {
+        <p class="success">
+          Mensagem enviada! Vamos responder no e-mail informado assim que possível.
+        </p>
+      } @else {
+        <form (submit)="onSubmit($event)">
+          <label>
+            Nome
+            <input type="text" name="nome" required autocomplete="name" />
+          </label>
+          <label>
+            Empresa
+            <input type="text" name="empresa" required autocomplete="organization" />
+          </label>
+          <label>
+            E-mail
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            Mensagem
+            <textarea name="mensagem" rows="4" required></textarea>
+          </label>
+
+          @if (error()) {
+            <p class="error">{{ error() }}</p>
+          }
+
+          <app-button variant="primary" type="submit">
+            {{ submitting() ? 'Enviando…' : 'Quero patrocinar' }}
+          </app-button>
+        </form>
+      }
+    </app-card>
+  </div>
 </section>

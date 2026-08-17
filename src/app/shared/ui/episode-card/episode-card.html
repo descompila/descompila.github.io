@@ -1,0 +1,34 @@
+<app-card class="episode-card">
+  <span class="eyebrow">Episódio {{ episodio().numero.toString().padStart(2, '0') }}</span>
+  <h3>{{ episodio().titulo }}</h3>
+  <p class="meta">
+    Com {{ episodio().convidado }}
+    @if (episodio().data) {
+      · {{ episodio().data | date: "d 'de' MMMM 'de' y" : undefined : 'pt-BR' }}
+    }
+  </p>
+
+  @if (showPlayer()) {
+    <div class="player">
+      <iframe
+        [src]="embedUrl()"
+        title="{{ episodio().titulo }}"
+        loading="lazy"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+        "
+        allowfullscreen
+      ></iframe>
+    </div>
+  } @else {
+    <p class="descricao">{{ episodio().descricao }}</p>
+    <app-button variant="ghost" [href]="'https://www.youtube.com/watch?v=' + episodio().youtubeId">
+      Assistir no YouTube →
+    </app-button>
+  }
+</app-card>

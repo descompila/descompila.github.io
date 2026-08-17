@@ -1,0 +1,88 @@
+.lede {
+  font-size: 1.1rem;
+  color: var(--color-ink-soft);
+  max-width: 56rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  margin-top: var(--space-8);
+}
+
+.pitch {
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  ul {
+    padding-left: 1.2em;
+    color: var(--color-ink-soft);
+  }
+
+  li {
+    margin-bottom: var(--space-2);
+  }
+
+  .note {
+    font-size: 0.9rem;
+    color: var(--color-ink-faint);
+  }
+}
+
+.form-card {
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+input,
+textarea {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  resize: vertical;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-bright);
+    outline-offset: 1px;
+  }
+}
+
+.success {
+  color: var(--color-accent-deep);
+  font-weight: 600;
+  margin: 0;
+}
+
+.error {
+  color: #b3312c;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

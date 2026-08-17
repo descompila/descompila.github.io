@@ -13,10 +13,5 @@
 
 <section class="container">
   <h2>Episódio mais recente</h2>
-  <app-card class="episode">
-    <span class="eyebrow">Episódio 01</span>
-    <h3>O Desafio dos Professores na Era da Inteligência Artificial</h3>
-    <p>Com Jean Lobo.</p>
-    <app-button variant="ghost" [href]="episodio1Url">Assistir no YouTube →</app-button>
-  </app-card>
+  <app-episode-card class="episode" [episodio]="ultimoEpisodio" />
 </section>

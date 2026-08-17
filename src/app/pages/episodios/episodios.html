@@ -1,5 +1,11 @@
 <section class="container">
   <span class="eyebrow">Todos os episódios</span>
   <h1>Episódios</h1>
-  <p>Grade de episódios (embed do YouTube, data, convidado) entra na Fase 2.</p>
+  <p>Conversas sobre tecnologia, carreira e educação — sem jargão desnecessário.</p>
+
+  <div class="grid">
+    @for (episodio of episodios; track episodio.numero) {
+      <app-episode-card [episodio]="episodio" [showPlayer]="true" />
+    }
+  </div>
 </section>

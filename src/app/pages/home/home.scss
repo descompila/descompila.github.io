@@ -17,13 +17,6 @@
 }
 
 .episode {
+  display: block;
   max-width: 36rem;
-
-  h3 {
-    margin-bottom: var(--space-2);
-  }
-
-  p {
-    color: var(--color-ink-soft);
-  }
 }

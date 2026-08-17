@@ -1,0 +1,33 @@
+.episode-card {
+  display: block;
+}
+
+h3 {
+  margin-bottom: var(--space-2);
+}
+
+.meta {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+}
+
+.descricao {
+  color: var(--color-ink-soft);
+}
+
+.player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-ink);
+  margin: var(--space-4) 0;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
