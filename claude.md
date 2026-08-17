@@ -1,0 +1,10 @@
+- Vou criar um site para meu canal do youtube descompila
+- O canal do youtube é esse: https://www.youtube.com/@Descompila
+- Esse canal ta parado, mas vou voltar com podcasts.
+- Esse é o video do meu primeiro episódio de podcast: https://www.youtube.com/watch?v=DunHrDCzHuA
+- Vou usar esse podcast para divulgar os patrocinadores. Atualmente não tenho. Mas vou ter. 
+- Na pasta logos tem várias logos para usar no site, analise as cores e faça uma design que agradavel, que passe confiança. 
+- O descompila é focado em educação na área tech, futuramente via ter cursos. 
+- Deixe o site otimizado com SEO mais moderno do momento
+- Propostito do descompila: Levar educação de forma simplificadas para todos.
+- Vou por no github pages, pode ser feito em angular. 
