@@ -8,6 +8,13 @@
 @use '@fontsource/ibm-plex-mono/latin-400.css' as *;
 @use '@fontsource/ibm-plex-mono/latin-500.css' as *;
 
+// Breakpoints padrão do site (custom properties não funcionam dentro de
+// @media, então isso é convenção, não variável reaproveitável — usar
+// estes dois valores literais em componentes novos em vez de escolher
+// um número novo). Ver .claude/docs/responsividade.md.
+//   640px — telefone: onde nav/menu e paddings de seção reduzem.
+//   768px — tablet retrato: onde layouts em 2 colunas colapsam para 1.
+
 :root {
   // Cor — paleta extraída das logos (.claude/docs/identidade-visual.md).
   --color-bg: #f5f9fb;
