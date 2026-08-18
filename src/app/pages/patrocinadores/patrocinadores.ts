@@ -35,14 +35,16 @@ export class Patrocinadores {
     this.error.set(null);
 
     try {
-      const formData = new FormData(form);
-      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-      formData.append('subject', 'Novo contato de patrocínio — Descompila');
+      const payload = {
+        ...Object.fromEntries(new FormData(form)),
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'Novo contato de patrocínio — Descompila',
+      };
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       });
       const data = await response.json();
 
