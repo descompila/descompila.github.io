@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://descompila.github.io/sitemap.xml

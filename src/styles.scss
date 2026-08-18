@@ -19,6 +19,10 @@
   --color-accent-deep: #154c63;
   --color-accent: #2c86a8;
   --color-accent-bright: #2fafdd;
+  /* Estado hover/pressed de elementos "cheios" (botão primário, pill ativo) —
+     mais escuro que --color-accent-deep para manter o texto branco em cima
+     acima de 4.5:1 (WCAG AA); --color-accent por si só não passa nesse uso. */
+  --color-accent-strong: #0f3a4d;
   --color-border: #dce8ed;
   --color-on-accent-deep: #f5f9fb;
 
@@ -63,6 +67,7 @@
     --color-accent-deep: #6fd3f2;
     --color-accent: #4fc1e8;
     --color-accent-bright: #4fc1e8;
+    --color-accent-strong: #4fc1e8;
     --color-border: #1e4351;
     --color-on-accent-deep: #0b1e28;
   }
@@ -140,7 +145,7 @@ img {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-deep);
   margin: 0 0 var(--space-3);
 }
 

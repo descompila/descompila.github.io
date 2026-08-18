@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Button } from '../../shared/ui/button/button';
 import { Card } from '../../shared/ui/card/card';
+import { Seo } from '../../core/seo/seo';
 
 const WEB3FORMS_ACCESS_KEY = '26565cff-e293-40b4-8dd4-300180fca945';
 
@@ -11,9 +12,20 @@ const WEB3FORMS_ACCESS_KEY = '26565cff-e293-40b4-8dd4-300180fca945';
   styleUrl: './patrocinadores.scss',
 })
 export class Patrocinadores {
+  private readonly seo = inject(Seo);
+
   protected readonly submitting = signal(false);
   protected readonly submitted = signal(false);
   protected readonly error = signal<string | null>(null);
+
+  constructor() {
+    this.seo.update({
+      title: 'Seja Patrocinador',
+      description:
+        'Patrocine o podcast Descompila e alcance uma audiência interessada em tecnologia, carreira e educação.',
+      path: '/patrocinadores/',
+    });
+  }
 
   protected async onSubmit(event: Event): Promise<void> {
     event.preventDefault();

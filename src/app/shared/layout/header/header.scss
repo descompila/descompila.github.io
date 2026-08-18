@@ -52,11 +52,11 @@ nav a {
     background: var(--color-accent-deep);
 
     &:hover {
-      background: var(--color-accent);
+      background: var(--color-accent-strong);
     }
 
     &.active {
-      background: var(--color-accent);
+      background: var(--color-accent-strong);
       color: var(--color-on-accent-deep);
     }
   }
