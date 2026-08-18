@@ -57,8 +57,9 @@ Fases pequenas e sequenciais — cada uma entrega algo que já poderia ir ao ar 
 4. **Fase 3 — SEO e performance** ✅ concluída: meta tags por rota, Open Graph/Twitter Card, JSON-LD condicionado a conteúdo publicado, sitemap/robots.txt, contraste WCAG AA revisado.
 5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); falta apenas o episódio 1 sair de verdade (23/08) e divulgar no canal.
 6. **Fase 5 — Patrocinadores e cursos** (contínuo): páginas "em breve" evoluem para reais assim que houver patrocinador ou curso confirmado.
+7. **Fase 6 — Responsividade** 📋 planejada: auditoria real em 5 larguras × 5 páginas encontrou um bug de overflow na grade de Episódios em telas de 320px e duas melhorias (alvos de toque, padronização de breakpoints). Plano completo em [`responsividade.md`](responsividade.md).
 
-**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual, conteúdo real e SEO técnico completos. Falta essencialmente aguardar a estreia do episódio 1 (23/08/2026) para marcar `publicado: true` em `episodios.ts` e o site ficar 100% "no ar de verdade".
+**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual, conteúdo real e SEO técnico completos. Falta essencialmente aguardar a estreia do episódio 1 (23/08/2026) para marcar `publicado: true` em `episodios.ts`, e executar a Fase 6 (responsividade, plano pronto aguardando aprovação).
 
 ## Decisões já confirmadas
 
