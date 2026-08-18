@@ -64,4 +64,4 @@ O script de auditoria (Playwright headless + verificação de `scrollWidth`) dev
 
 ## Status
 
-📋 Plano — aguardando aprovação para implementar as fases R0–R3.
+✅ Concluído e publicado. Reauditoria (5 páginas × 5 larguras, local) confirmou zero overflow horizontal e alvos de toque em 44px no menu e nos botões.
