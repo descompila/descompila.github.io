@@ -32,13 +32,14 @@ Angular direto no GitHub Pages, sem backend — todo o conteúdo é estático ou
 
 ## SEO moderno
 
-- Meta tags por rota via `Meta`/`Title` do Angular, geradas em build time (prerender), não só no cliente.
-- Open Graph e Twitter Cards em cada página, com a logo como imagem padrão de compartilhamento.
-- Dados estruturados (JSON-LD) — `PodcastSeries`/`PodcastEpisode` e `Organization` do schema.org.
-- `sitemap.xml` e `robots.txt` gerados no build e enviados ao Google Search Console.
-- Core Web Vitals: imagens em WebP/AVIF com lazy loading, fontes com `font-display: swap`, sem JS bloqueando o primeiro paint.
-- HTML semântico e acessível (landmarks, alt text, contraste AA).
-- URL canônica e `hreflang="pt-BR"`.
+- ✅ Meta tags por rota via `SeoService` (`core/seo/seo.ts`, usa `Meta`/`Title` do Angular), chamado no `constructor()` de cada página — como o build prerenderiza cada rota, o `index.html` de cada página já nasce com title/description/OG/canonical corretos (confirmado inspecionando o `dist/`), não depende de JS rodar no cliente.
+- ✅ Open Graph e Twitter Card em todas as páginas, com `public/og-image.png` (1200×630, gerado a partir do símbolo da logo) como imagem padrão.
+- ✅ JSON-LD: `Organization` + `PodcastSeries` na Home; `PodcastEpisode` nos Episódios só para itens com `publicado: true` — nunca indexa um episódio que ainda não saiu.
+- ✅ `sitemap.xml` e `robots.txt` estáticos em `public/`, com as 5 rotas. Falta só submeter ao Google Search Console (ação manual, fora do código).
+- ✅ `font-display: swap` (padrão do `@fontsource`); `width`/`height` explícitos nas logos do header/footer para evitar CLS.
+- ✅ HTML semântico (`header`/`main`/`footer`) e contraste WCAG AA conferido nas combinações de cor do design system (ver commit da Fase 3 — dois tokens foram trocados por não passarem 4.5:1).
+- **Não implementado — `hreflang`**: descartado de propósito. `hreflang` sinaliza versões alternativas por idioma da mesma página; como o site é 100% pt-BR sem versão em outro idioma, isso não se aplica. O sinal de idioma correto já existe via `<html lang="pt-BR">` e `og:locale`.
+- **Pendente**: submeter o `sitemap.xml` ao Google Search Console assim que o domínio for verificado (ação manual do Samuelson).
 
 ## Patrocinadores
 
@@ -53,11 +54,11 @@ Fases pequenas e sequenciais — cada uma entrega algo que já poderia ir ao ar 
 1. **Fase 0 — Fundação** ✅ concluída: repositório `descompila/descompila.github.io` criado, projeto Angular 22 (standalone, zoneless, `outputMode: static`) com ESLint + Prettier, estrutura de pastas (`pages/`, `shared/layout/`), rotas lazy para as 5 páginas com header/footer navegáveis, favicon/ícones gerados a partir do símbolo da logo, `base-href` `/`.
 2. **Fase 1 — Design system** ✅ concluída: tokens de cor/tipografia (CSS custom properties, com suporte a tema claro/escuro via `prefers-color-scheme`), IBM Plex Sans/Mono self-hosted via `@fontsource`, componentes `Button` e `Card` reutilizáveis, Header/Footer com as logos reais.
 3. **Fase 2 — Páginas principais** ✅ concluída: Home (hero + próximo episódio), Episódios (grid alimentado por `episodios.ts`, trata publicado vs. "estreia em breve"), Sobre (propósito real + bio do apresentador) e Patrocinadores (formulário funcional via Web3Forms, ver [`patrocinadores.md`](patrocinadores.md)) com conteúdo real.
-4. **Fase 3 — SEO e performance** (~3–5 dias): meta tags por rota, JSON-LD, sitemap, checagem de Core Web Vitals.
-5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); falta apenas testar em produção com conteúdo real (Fase 2) e divulgar no canal.
+4. **Fase 3 — SEO e performance** ✅ concluída: meta tags por rota, Open Graph/Twitter Card, JSON-LD condicionado a conteúdo publicado, sitemap/robots.txt, contraste WCAG AA revisado.
+5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); falta apenas o episódio 1 sair de verdade (23/08) e divulgar no canal.
 6. **Fase 5 — Patrocinadores e cursos** (contínuo): páginas "em breve" evoluem para reais assim que houver patrocinador ou curso confirmado.
 
-**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual aplicada e conteúdo real em todas as páginas principais. Próximo passo é a Fase 3 (SEO técnico: meta tags por rota, JSON-LD, sitemap).
+**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual, conteúdo real e SEO técnico completos. Falta essencialmente aguardar a estreia do episódio 1 (23/08/2026) para marcar `publicado: true` em `episodios.ts` e o site ficar 100% "no ar de verdade".
 
 ## Decisões já confirmadas
 
