@@ -2,9 +2,9 @@
 
 ## Objetivo
 
-O Descompila volta ao ar em formato de podcast, com o episódio #01 — "O Desafio dos Professores na Era da Inteligência Artificial" (convidado: Jean Lobo) abrindo a nova fase. O site dá um lar a esse conteúdo fora do YouTube: reforça a marca, apresenta os episódios e, assim que existirem, dá visibilidade a patrocinadores e cursos.
+O Descompila volta ao ar em formato de podcast. O site dá um lar a esse conteúdo fora do YouTube: reforça a marca, apresenta os episódios e, assim que existirem, dá visibilidade a patrocinadores e cursos.
 
-**Nota**: a estreia do episódio 1 foi adiada (problema de saúde do convidado) para **23/08/2026**. O site trata episódios não publicados como "estreia em breve" — sem embed nem link do YouTube — até a data de fato acontecer e o vídeo ficar público. Não usar mais o link `DunHrDCzHuA` como referência de vídeo já publicado em nenhuma comunicação até a estreia real ser confirmada.
+**Episódios no ar**: #01 — "Dados na prática: o que a teoria não te ensina sobre o mercado" (convidado: Eduardo Brito, 23/08/2026) e #02 — "O Desafio dos Professores na Era da Inteligência Artificial" (convidado: Jean Lobo, 24/08/2026). Confirmados publicados via feed RSS oficial do canal em 28/08/2026. O site continua tratando qualquer episódio futuro com `publicado: false` como "estreia em breve" — sem embed nem link do YouTube — até o vídeo ficar público de fato.
 
 Identidade visual detalhada em [`identidade-visual.md`](identidade-visual.md).
 
@@ -55,11 +55,12 @@ Fases pequenas e sequenciais — cada uma entrega algo que já poderia ir ao ar 
 2. **Fase 1 — Design system** ✅ concluída: tokens de cor/tipografia (CSS custom properties, com suporte a tema claro/escuro via `prefers-color-scheme`), IBM Plex Sans/Mono self-hosted via `@fontsource`, componentes `Button` e `Card` reutilizáveis, Header/Footer com as logos reais.
 3. **Fase 2 — Páginas principais** ✅ concluída: Home (hero + próximo episódio), Episódios (grid alimentado por `episodios.ts`, trata publicado vs. "estreia em breve"), Sobre (propósito real + bio do apresentador) e Patrocinadores (formulário funcional via Web3Forms, ver [`patrocinadores.md`](patrocinadores.md)) com conteúdo real.
 4. **Fase 3 — SEO e performance** ✅ concluída: meta tags por rota, Open Graph/Twitter Card, JSON-LD condicionado a conteúdo publicado, sitemap/robots.txt, contraste WCAG AA revisado.
-5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); falta apenas o episódio 1 sair de verdade (23/08) e divulgar no canal.
+5. **Fase 4 — CI/CD e lançamento**: ✅ pipeline no ar (`.github/workflows/deploy.yml`, deploy automático a cada push na `main`); episódios #01 e #02 já publicados no canal.
 6. **Fase 5 — Patrocinadores e cursos** (contínuo): páginas "em breve" evoluem para reais assim que houver patrocinador ou curso confirmado.
 7. **Fase 6 — Responsividade** ✅ concluída: corrigido o bug de overflow na grade de Episódios (320px), alvos de toque do menu/botões elevados a 44px, breakpoints padronizados (640px/768px). Detalhes em [`responsividade.md`](responsividade.md).
+8. **Fase 7 — Captura de leads (newsletter + landing page de curso)** 📋 planejada: newsletter no rodapé do site inteiro e infraestrutura de landing page fora do menu (`/lp/:slug`) para validar interesse em cursos específicos, ambas alimentando listas no Brevo para futuras automações de funil. Plano completo em [`captura-de-leads.md`](captura-de-leads.md).
 
-**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual, conteúdo real, SEO técnico e responsividade revisada. Falta essencialmente aguardar a estreia do episódio 1 (23/08/2026) para marcar `publicado: true` em `episodios.ts`.
+**Status atual**: site no ar em <https://descompila.github.io/> com identidade visual, conteúdo real, SEO técnico, responsividade revisada e os dois primeiros episódios publicados (`episodios.ts`). Falta decidir a implementação da Fase 7 (newsletter e landing pages de curso).
 
 ## Decisões já confirmadas
 
