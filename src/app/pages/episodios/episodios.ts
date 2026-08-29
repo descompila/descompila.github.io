@@ -27,9 +27,9 @@ export class Episodios {
       this.seo.setJsonLd('episodes', {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        itemListElement: publicados.map((ep, index) => ({
+        itemListElement: publicados.map((ep) => ({
           '@type': 'PodcastEpisode',
-          position: index + 1,
+          position: ep.numero,
           name: ep.titulo,
           datePublished: ep.data,
           url: `https://www.youtube.com/watch?v=${ep.youtubeId}`,
