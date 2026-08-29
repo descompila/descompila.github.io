@@ -1,7 +1,11 @@
-<app-header />
+@if (!isLandingPage()) {
+  <app-header />
+}
 
 <main>
   <router-outlet />
 </main>
 
-<app-footer />
+@if (!isLandingPage()) {
+  <app-footer />
+}

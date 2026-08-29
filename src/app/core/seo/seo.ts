@@ -12,6 +12,8 @@ export interface SeoConfig {
   /** Caminho da rota, começando com "/" (ex: "/episodios/"). */
   path: string;
   image?: string;
+  /** Marca a página para não ser indexada (ex: landing pages de tráfego pago). */
+  noindex?: boolean;
 }
 
 @Service()
@@ -27,6 +29,10 @@ export class Seo {
 
     this.title.setTitle(fullTitle);
     this.meta.updateTag({ name: 'description', content: config.description });
+    this.meta.updateTag({
+      name: 'robots',
+      content: config.noindex ? 'noindex,nofollow' : 'index,follow',
+    });
 
     this.meta.updateTag({ property: 'og:site_name', content: SITE_NAME });
     this.meta.updateTag({ property: 'og:type', content: 'website' });

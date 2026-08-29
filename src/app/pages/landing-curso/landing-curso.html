@@ -1,0 +1,51 @@
+@if (curso) {
+  <div class="lp">
+    <header class="lp-header">
+      <img src="brand/logo-horizontal-azul.png" alt="Descompila" width="160" height="26" />
+    </header>
+
+    <main class="lp-main">
+      <span class="eyebrow">Curso em validação</span>
+      <h1>{{ curso.titulo }}</h1>
+      <p class="promessa">{{ curso.promessa }}</p>
+
+      <ul class="beneficios">
+        @for (item of curso.beneficios; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+
+      <app-card class="form-card">
+        @if (obrigado) {
+          <p class="success">Prontinho! Avisamos você assim que o curso estiver disponível.</p>
+        } @else {
+          <form [action]="curso.formAction" method="post">
+            <label>
+              E-mail
+              <input type="email" [name]="curso.emailField" required autocomplete="email" />
+            </label>
+
+            @for (hidden of curso.hiddenFields | keyvalue; track hidden.key) {
+              <input type="hidden" [name]="hidden.key" [value]="hidden.value" />
+            }
+
+            <label class="consent">
+              <input type="checkbox" required />
+              Aceito receber e-mails do Descompila e sei que posso cancelar quando quiser.
+            </label>
+
+            <app-button variant="primary" type="submit">Quero ser avisado</app-button>
+          </form>
+        }
+      </app-card>
+    </main>
+
+    <footer class="lp-footer">
+      <p>&copy; {{ year }} Descompila · <a routerLink="/privacidade">Como tratamos seus dados</a></p>
+    </footer>
+  </div>
+} @else {
+  <div class="container">
+    <p>Página não encontrada.</p>
+  </div>
+}

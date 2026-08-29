@@ -1,0 +1,111 @@
+.lp {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.lp-header {
+  padding: var(--space-6);
+  display: flex;
+  justify-content: center;
+}
+
+.lp-main {
+  flex: 1;
+  width: 100%;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6) var(--space-16);
+  text-align: center;
+}
+
+.promessa {
+  font-size: 1.15rem;
+  color: var(--color-ink-soft);
+  max-width: none;
+  margin: 0 auto var(--space-8);
+}
+
+.beneficios {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  li {
+    padding-left: var(--space-6);
+    position: relative;
+    color: var(--color-ink-soft);
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-deep);
+      font-weight: 700;
+    }
+  }
+}
+
+.form-card {
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.consent {
+  flex-direction: row;
+  align-items: flex-start;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+input[type='email'] {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-ink);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-bright);
+    outline-offset: 1px;
+  }
+}
+
+.success {
+  color: var(--color-accent-deep);
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.lp-footer {
+  text-align: center;
+  padding: var(--space-6);
+  font-size: 0.8rem;
+  color: var(--color-ink-faint);
+
+  a {
+    color: inherit;
+  }
+}
